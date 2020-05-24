@@ -17,10 +17,13 @@
         Height="450"
         Width="800">
 
-    <Grid>
+    <StackPanel>
         <materialDesign:Card Padding="32"
                              Margin="16">
-            <ListView ItemsSource="{Binding ListContents}" DisplayMemberPath="Name"></ListView>
+            <ListView ItemsSource="{Binding ListContents}" DisplayMemberPath="Name"/>
         </materialDesign:Card>
-    </Grid>
+        <Button Content="Test"
+                Command="{Binding DeleteCommand}"
+                Style="{StaticResource MaterialDesignFlatAccentButton}"/>
+    </StackPanel>
 </Window>

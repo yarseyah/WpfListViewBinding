@@ -2,7 +2,9 @@
 
 namespace WpfApp1
 {
+    using System.Diagnostics;
     using System.Windows.Documents;
+    using System.Windows.Input;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -17,6 +19,8 @@ namespace WpfApp1
 
         public Data[] ListContents { get; } =
             { new Data("Apples", 12), new Data("Oranges", 13), new Data("Pears", 14), };
+
+        public ICommand DeleteCommand { get; } = new DelegateCommand(e => Trace.WriteLine("Command triggered"));
     }
 
     public class Data
