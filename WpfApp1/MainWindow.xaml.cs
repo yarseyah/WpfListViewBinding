@@ -17,15 +17,15 @@ namespace WpfApp1
             DataContext = this;
         }
 
-        public Data[] ListContents { get; } =
-            { new Data("Apples", 12), new Data("Oranges", 13), new Data("Pears", 14), };
+        public Fruit[] ListContents { get; } =
+            { new Fruit("Apples", 12), new Fruit("Oranges", 13), new Fruit("Pears", 14), };
 
         public ICommand DeleteCommand { get; } = new DelegateCommand(e => Trace.WriteLine("Command triggered"));
     }
 
-    public class Data
+    public class Fruit
     {
-        public Data(string name, int id)
+        public Fruit(string name, int id)
         {
             Name = name;
             Id = id;

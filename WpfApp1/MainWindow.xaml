@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:collections="clr-namespace:System.Collections;assembly=System.Runtime"
+        xmlns:local="clr-namespace:WpfApp1"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -20,7 +21,17 @@
     <StackPanel>
         <materialDesign:Card Padding="32"
                              Margin="16">
-            <ListView ItemsSource="{Binding ListContents}" DisplayMemberPath="Name"/>
+            <ListView ItemsSource="{Binding ListContents}">
+                <ListView.ItemTemplate>
+                    <DataTemplate DataType="{x:Type local:Fruit}">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Command="{Binding DeleteCommand}" />
+                            <TextBlock Text="{Binding Name}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </materialDesign:Card>
         <Button Content="Test"
                 Command="{Binding DeleteCommand}"
