@@ -22,14 +22,20 @@
         <materialDesign:Card Padding="32"
                              Margin="16">
             <ListView ItemsSource="{Binding ListContents}">
-                <ListView.ItemTemplate>
-                    <DataTemplate DataType="{x:Type local:Fruit}">
-                        <StackPanel Orientation="Horizontal">
-                            <Button Command="{Binding DeleteCommand}" />
-                            <TextBlock Text="{Binding Name}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate DataType="{x:Type local:Fruit}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Command="{Binding DeleteCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}}}" />
+                                        <TextBlock Text="{Binding Name}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
             </ListView>
 
         </materialDesign:Card>
